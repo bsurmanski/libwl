@@ -1,3 +1,5 @@
+use "importc"
+
 import(C) "SDL/SDL.h"
 
 bool initialized = false

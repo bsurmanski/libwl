@@ -54,6 +54,10 @@ struct vec4 {
     float^ ptr() {
         return .v.ptr
     }
+
+    void print() {
+        printf("%f %f %f %f\n", .v[0], .v[1], .v[2], .v[3])
+    }
 }
 
 // row major matrix
@@ -105,9 +109,10 @@ struct mat4 {
         for(int j = 0; j < 4; j++) {
             ret.v[j] = 0.0f
             for(int i = 0; i < 4; i++) {
-                ret.v[j] += .get(i, j) * o.get(j)
+                ret.v[j] += .get(i, j) * o.get(i)
             }
         }
+        return ret
     }
 
     mat4 translate(vec4 o) {
